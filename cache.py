@@ -1,4 +1,4 @@
-from ..utilities import load_file_to_data, dump_data_to_file, test_file_exists
+from .utilities import load_file_to_data, dump_data_to_file, test_file_exists
 
 
 class Cache:

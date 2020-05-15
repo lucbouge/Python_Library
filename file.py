@@ -1,10 +1,10 @@
 
 import os
 import pickle
-from . import printer
-eprint = printer.eprint
+from .print import eprint
 
 _internal_pkl_dir = 'PKL'
+
 
 def _internal_dataname_to_path(dataname, dir=''):
     dirname = os.path.join(_internal_pkl_dir, dir)

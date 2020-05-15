@@ -1,13 +1,4 @@
-from . import printer
-from printer import eprint, epprint
 
-
-
-
-#############################################################
-
-
-#############################################################
 
 
 def extract_unique_elements(l):
@@ -18,4 +9,3 @@ def extract_unique_elements(l):
         ll.append(e)
     return ll
 
-#############################################################

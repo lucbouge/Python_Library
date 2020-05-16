@@ -1,6 +1,4 @@
 
-
-
 def extract_unique_elements(l):
     ll = list()
     for e in l:
@@ -8,4 +6,3 @@ def extract_unique_elements(l):
             continue
         ll.append(e)
     return ll
-

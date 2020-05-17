@@ -73,3 +73,12 @@ def dump_data_to_file(data, dataname, dir=''):
     eprint('Done!')
     assert os.path.exists(path), path
     return None
+
+
+def make_master_data_dict(filename_dict):
+    master_data_dict = dict()
+    for (tag, data) in filename_dict.items():
+        dataname = data['dataname']
+        dir = data['dir']
+        master_data_dict[tag] = load_file_to_data(dataname, dir=dir)
+    return master_data_dict

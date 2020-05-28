@@ -29,6 +29,13 @@ def list_dir_contents(dir='Cache'):
     return l
 
 
+def remove_file(dataname, dir=''):
+    (path, _, _) = _internal_dataname_to_path(dataname, dir)
+    assert test_file_exists(dataname, dir), dataname
+    eprint(f'Deleting {path}')
+    os.remove(path)
+
+
 def test_file_exists(dataname, dir=''):
     (path, _, _) = _internal_dataname_to_path(dataname, dir)
     return os.path.exists(path)

@@ -1,7 +1,7 @@
 from .print import eprint
 
 
-class Counter():
+class Counter:
     def __init__(self):
         self.counter_dict = dict()
 
@@ -11,6 +11,6 @@ class Counter():
         self.counter_dict[tag] += 1
 
     def eprint(self):
-        eprint('_'*20)
+        eprint("_" * 20)
         for (tag, nb) in sorted(self.counter_dict.items()):
-            eprint(tag + ': ', nb)
+            eprint(tag + ": ", nb)

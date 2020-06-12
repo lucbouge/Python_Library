@@ -1,4 +1,3 @@
-
 def extract_unique_elements(l):
     ll = list()
     for e in l:

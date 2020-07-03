@@ -1,11 +1,23 @@
 import logging
-from logging import basicConfig, info, warning, error, critical, exception
+from logging import (
+    basicConfig,
+    info,
+    warning,
+    error,
+    critical,
+    exception,
+    INFO,
+    WARNING,
+    ERROR,
+    CRITICAL,
+    EXCEPTION,
+)
 
 
 # https://docs.python.org/3/library/logging.html
 
 
-logging_format = "{levelname} {pathname} {lineno} --> {msg}"  # {asctime}
+logging_format = "{levelname}: {pathname}#{lineno} --> {msg}"  # {asctime}
 
 basicConfig(
     level=logging.INFO,

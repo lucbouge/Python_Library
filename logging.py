@@ -10,7 +10,6 @@ from logging import (
     WARNING,
     ERROR,
     CRITICAL,
-    EXCEPTION,
 )
 
 

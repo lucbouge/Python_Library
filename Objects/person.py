@@ -1,8 +1,8 @@
 import re
 import pandas as pd
 
-from Packages.lib.normalize import normalize_name
-from Packages.lib.print import eprint
+from ..System.normalize import normalize_name
+from ..System.print import eprint
 
 from .Person.name_to_keys import get_keys
 from .Person.get_conflicts_list import get_conflicts_list

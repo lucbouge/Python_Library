@@ -1,5 +1,5 @@
-from Packages.local.conflict import Conflict
-from Packages.lib.print import eprint
+from ..conflict import Conflict
+from ...System.print import eprint
 
 # from Packages.local.person import Person
 from .identify import identify

@@ -3,7 +3,7 @@ import requests
 import json
 import logging
 
-from Packages.lib.print import eprint, epprint
+from ...System.print import eprint, epprint
 
 # logging_format = "{levelname}: {pathname}#{lineno} --> {msg}"  # {asctime}
 logging_format = r"%(levelname)s: #%(lineno)d --> %(msg)s"  # %(asctime)s

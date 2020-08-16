@@ -1,5 +1,5 @@
-from Packages.lib.print import eprint, epprint
-from Packages.local.person import Person
+from ..System.print import eprint, epprint
+from .person import Person
 
 
 class Project:

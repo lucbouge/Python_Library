@@ -3,8 +3,8 @@ import time
 import pandas as pd
 
 
-from Packages.lib.normalize import normalize_name
-from Packages.lib.print import eprint
+from ..System.normalize import normalize_name
+from ..System.print import eprint
 
 
 def print_stats_len(title, dico):

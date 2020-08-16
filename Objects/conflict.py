@@ -1,4 +1,4 @@
-from Packages.lib.print import eprint, epprint
+from ..System.print import eprint, epprint
 
 
 class Conflict:

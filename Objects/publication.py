@@ -1,5 +1,5 @@
-from Packages.lib.print import eprint, epprint
-from Packages.local.person import Person
+from ..System.print import eprint, epprint
+from ..System.person import Person
 from .Publication.person_to_pub_ids_set import get_pub_ids_set
 from .Publication.pub_id_to_publication import get_data
 

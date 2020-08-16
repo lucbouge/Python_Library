@@ -1,8 +1,8 @@
 import re
 from nameparser import HumanName
 
-from Packages.lib.normalize import normalize_name
-from Packages.lib.print import eprint
+from ..System.normalize import normalize_name
+from ..System.print import eprint
 
 ignored_name_blocks = (
     "de",

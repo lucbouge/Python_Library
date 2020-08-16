@@ -1,5 +1,5 @@
 import sys
-from Packages.lib.print import eprint
+from .print import eprint
 import logging
 from logging import (
     basicConfig,

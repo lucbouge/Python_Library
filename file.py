@@ -14,7 +14,7 @@ def _internal_dataname_to_path(dataname, *, dir=""):
 
 
 def list_dir_contents(*, dir="Cache"):
-    (_, dirname, _) = _internal_dataname_to_path("NONAME", dir)
+    (_, dirname, _) = _internal_dataname_to_path("NONAME", dir=dir)
     assert os.path.exists(dirname), dirname
     l = list()
     for (root, _, files) in os.walk(dirname):
@@ -29,19 +29,19 @@ def list_dir_contents(*, dir="Cache"):
 
 
 def remove_file(dataname, *, dir=""):
-    (path, _, _) = _internal_dataname_to_path(dataname, dir)
-    assert test_file_exists(dataname, dir), dataname
+    (path, _, _) = _internal_dataname_to_path(dataname, dir=dir)
+    assert test_file_exists(dataname, dir=dir), dataname
     eprint(f"Deleting {path}")
     os.remove(path)
 
 
 def test_file_exists(dataname, *, dir=""):
-    (path, _, _) = _internal_dataname_to_path(dataname, dir)
+    (path, _, _) = _internal_dataname_to_path(dataname, dir=dir)
     return os.path.exists(path)
 
 
 def load_file_to_data(dataname, *, dir=""):
-    (path, _, _) = _internal_dataname_to_path(dataname, dir)
+    (path, _, _) = _internal_dataname_to_path(dataname, dir=dir)
     assert os.path.exists(path), path
     with open(path, "rb") as input:
         eprint(f"Loading {dataname} from: {path}", end="... ")
@@ -54,7 +54,7 @@ def is_target_newer_than_source(*, source=None, dataname=None, dir=""):
     assert source is not None, source
     assert dataname is not None, dataname
     assert os.path.exists(source), source
-    (path, _, _) = _internal_dataname_to_path(dataname, dir)
+    (path, _, _) = _internal_dataname_to_path(dataname, dir=dir)
     target = path
     if not os.path.exists(target):
         eprint(f"is_dump_newer: Target {target} does not exist, yet")
@@ -69,7 +69,7 @@ def is_target_newer_than_source(*, source=None, dataname=None, dir=""):
 
 
 def dump_data_to_file(data, dataname, *, dir=""):
-    (path, dirname, _) = _internal_dataname_to_path(dataname, dir)
+    (path, dirname, _) = _internal_dataname_to_path(dataname, dir=dir)
     os.makedirs(dirname, exist_ok=True)
     assert os.path.exists(dirname)
     with open(path, "wb") as output:

@@ -8,12 +8,18 @@ def eprint(*args, **kwargs):
     print("--> ", *args, **kwargs)
 
 
+# def epprint(*args, **kwargs):
+#     def f(a):
+#         pprint.pprint(a, stream=sys.stderr, **kwargs)
+
+#     if len(args) == 1:
+#         f(*args)
+#     else:
+#         f(args)
+
+
 def epprint(*args, **kwargs):
-    def f(a):
-        pprint.pprint(a, stream=sys.stderr, **kwargs)
-
-    if len(args) == 1:
-        f(args[0])
-    else:
-        f(args)
-
+    kwargs["stream"] = sys.stderr
+    if len(args) > 1:  # Trick!
+        args = (args,)
+    pprint.pprint(*args, **kwargs)

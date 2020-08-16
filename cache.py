@@ -4,7 +4,7 @@ import os
 
 
 class Cache:
-    def __init__(self, cachedirname=None, cachename=None, interval=100):
+    def __init__(self, *, cachedirname=None, cachename=None, interval=100):
         self.update_counter = 0
         ##
         assert isinstance(interval, int), interval

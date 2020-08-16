@@ -2,7 +2,7 @@ import re
 import unidecode
 
 
-def normalize_name(s, strong=False):
+def normalize_name(s, *, strong=False):
     assert isinstance(s, str), s
     initial_s = s
     # Project on ASCII

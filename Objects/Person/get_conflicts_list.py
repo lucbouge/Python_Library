@@ -6,6 +6,7 @@ from .identify import identify
 
 
 def get_conflicts_list(
+    *,
     publication=None,
     reviewers_ids=None,
     partners_ids=None,
@@ -61,6 +62,7 @@ def get_conflicts_list(
 
 
 def check_conflict(
+    *,
     publication=None,
     publication_persons=None,
     reviewer_person=None,
@@ -124,6 +126,7 @@ def check_person_authors(project_person=None, publication_persons=None):
 
 
 def check_person_roles(
+    *,
     author_fullnames=None,
     author_roles=None,
     reviewer_fullname_found=None,

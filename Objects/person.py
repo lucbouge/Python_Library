@@ -22,7 +22,7 @@ from .Person.identify import identify
 
 
 class Person:
-    def __init__(self, firstname=None, lastname=None, fullname=None):
+    def __init__(self, *, firstname=None, lastname=None, fullname=None):
         if fullname is not None:
             assert pd.notna(fullname)
             assert firstname is None

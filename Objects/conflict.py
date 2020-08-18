@@ -4,6 +4,7 @@ from ..System.print import eprint, epprint
 class Conflict:
     def __init__(
         self,
+        *,
         ##
         project_id=None,
         pub_id=None,

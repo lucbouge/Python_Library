@@ -1,5 +1,5 @@
 from ..System.print import eprint, epprint
-from ..System.person import Person
+from .person import Person
 from .Publication.person_to_pub_ids_set import get_pub_ids_set
 from .Publication.pub_id_to_publication import get_data
 
@@ -43,6 +43,7 @@ kinds_values = (
 class Publication:
     def __init__(
         self,
+        *,
         pub_id=None,
         title=None,
         year=None,
@@ -119,6 +120,7 @@ class Publication:
 
 
 def extract_pub_data(
+    *,
     pub_id=None,
     title=None,
     year=None,
@@ -170,7 +172,7 @@ def extract_pub_data(
     return pub_data
 
 
-def collapse_list(pub_id, l, kind=None, size=None):
+def collapse_list(pub_id, l, *, kind=None, size=None):
     assert kind is not None
     assert size is not None
     assert isinstance(size, int) and size > 10, size

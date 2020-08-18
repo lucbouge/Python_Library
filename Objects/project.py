@@ -4,7 +4,7 @@ from .person import Person
 
 class Project:
     def __init__(
-        self, acronym=None, coordinator=None, partners=None, reviewers=None,
+        self, *, acronym=None, coordinator=None, partners=None, reviewers=None,
     ):
         assert acronym is not None
         assert coordinator is not None

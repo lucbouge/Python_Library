@@ -1,8 +1,8 @@
 import re
 from nameparser import HumanName
 
-from ..System.normalize import normalize_name
-from ..System.print import eprint
+from ...System.normalize import normalize_name
+from ...System.print import eprint
 
 ignored_name_blocks = (
     "de",
@@ -87,7 +87,7 @@ def fullname_to_first_and_lastnames(fullname):
     return (firstname, lastname)
 
 
-def get_keys(fullname=None, firstname=None, lastname=None):
+def get_keys(*, fullname=None, firstname=None, lastname=None):
     if fullname is not None:
         assert firstname is None
         assert lastname is None

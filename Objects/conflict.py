@@ -1,6 +1,3 @@
-from ..System.print import eprint, epprint
-
-
 class Conflict:
     def __init__(
         self,
@@ -19,6 +16,12 @@ class Conflict:
         partner_found=None,
         partner_roles=None,
     ):
+        assert project_id is not None
+        assert pub_id is not None
+        assert reviewer is not None
+        assert reviewer_id is not None
+        assert partner is not None
+        assert partner_id is not None
         assert partner_id != reviewer_id, project_id
         ##
         self.data = {

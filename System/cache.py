@@ -1,6 +1,6 @@
+import os
 from .file import load_file_to_data, dump_data_to_file, test_file_exists
 from .print import eprint
-import os
 
 
 class Cache:

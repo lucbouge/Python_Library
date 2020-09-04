@@ -1,24 +1,9 @@
-import re
 import pandas as pd
 
 from ..System.normalize import normalize_name
-from ..System.print import eprint
 
-from .Person.name_to_keys import get_keys
-from .Person.get_conflicts_list import get_conflicts_list
+from .Person.name_to_keys import get_keys, get_blocks
 from .Person.identify import identify
-
-##################################################################
-
-# "firstname": firstname,
-# "lastname": lastname,
-# "fullname": fullname,
-# "person_id": person_id,  # Normalized
-# "firstname_key": firstname_key,  # Normalized
-# "lastname_key": lastname_key,  # Normalized
-# "firstname_key_initial": firstname_key_initial,  # Normalized
-
-##################################################################
 
 
 class Person:
@@ -50,13 +35,29 @@ class Person:
 
     ##################################################################
 
+    def is_similar_to(self, p):
+        assert isinstance(p, Person)
+        for field in ("person_id", "firstname_normalized", "lastname_normalized"):
+            if self.data[field] != p.data[field]:
+                return False
+        return True
+
+    def recognize_in_fullname(self, fullname):
+        person = Person(fullname=fullname)
+        return identify(person1=self, person2=person)
+
+    ##################################################################
+
     @staticmethod
     def identify(*args):
         return identify(*args)
 
     @staticmethod
-    def get_conflicts_list(**kwargs):
-        return get_conflicts_list(**kwargs)
+    def get_blocks(name):
+        assert isinstance(name, str), name
+        return get_blocks(name)
+
+    ##################################################################
 
     def __getitem__(self, field):
         return self.data[field]
@@ -65,4 +66,18 @@ class Person:
         return "Person::" + repr(self.data)
 
     def __eq__(self, p):
-        return self.data["person_tag"] == p.data["person_tag"]
+        assert isinstance(p, Person), p
+        return self.data["person_id"] == p["person_id"]
+
+
+##################################################################
+
+# "firstname": firstname,
+# "lastname": lastname,
+# "fullname": fullname,
+# "person_id": person_id,  # Normalized
+# "firstname_key": firstname_key,  # Normalized
+# "lastname_key": lastname_key,  # Normalized
+# "firstname_key_initial": firstname_key_initial,  # Normalized
+
+##################################################################

@@ -1,26 +1,8 @@
-import sys
-import requests
 import json
-import logging
+import requests
 
 from ...System.print import eprint, epprint
 
-# logging_format = "{levelname}: {pathname}#{lineno} --> {msg}"  # {asctime}
-logging_format = r"%(levelname)s: #%(lineno)d --> %(msg)s"  # %(asctime)s
-
-logging_kwargs = {
-    "filename": "person_to_pub_ids_set.log",
-    "filemode": "w",
-    # "stream": sys.stderr,
-    "level": logging.DEBUG,
-    "style": r"%",
-    "format": logging_format,
-    "datefmt": r"%Y-%m-%d %H:%M:%S",
-    # "force": True,
-}
-
-
-logging.basicConfig(**logging_kwargs)
 
 ########################################################
 
@@ -29,7 +11,7 @@ def get_pub_ids_set(person, cache):
     query = make_query(person)
     docs = scanr_publications_request(query, cache)
     assert isinstance(docs, list), epprint(docs)
-    pub_ids_set = filter(docs, person)
+    pub_ids_set = filter(docs)
     return pub_ids_set
 
 
@@ -47,7 +29,7 @@ def make_query(person):
 ########################################################
 
 
-def filter(docs, person):
+def filter(docs):
     pub_ids_set = set()
     for publication in docs:
         data = publication["value"]
@@ -90,4 +72,3 @@ def scanr_publications_request(query, cache):
     results = r_json["results"]
     cache.update_key_value(key, results)
     return results
-

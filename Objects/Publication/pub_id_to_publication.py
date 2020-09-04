@@ -1,8 +1,6 @@
-import sys
-import requests
-import json
 import logging
 import urllib
+import requests
 
 from ...System.print import eprint, epprint
 

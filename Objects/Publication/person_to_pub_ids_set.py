@@ -90,4 +90,3 @@ def scanr_publications_request(query, cache):
     results = r_json["results"]
     cache.update_key_value(key, results)
     return results
-

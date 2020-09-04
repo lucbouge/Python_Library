@@ -37,6 +37,7 @@ kinds_values = (
     "poster",
     "component",
     "peer-review",
+    "journal-issue",
 )
 
 
@@ -151,7 +152,8 @@ def extract_pub_data(
     assert isinstance(author_roles, list)
     assert len(author_fullnames) == len(author_roles)
     for role in author_roles:
-        assert role in roles_values, role
+        if role is not None:
+            assert role in roles_values, role
     ##
     collapsed_fullnames = collapse_list(
         pub_id, author_fullnames, kind="author", size=max_number_authors

@@ -1,9 +1,7 @@
 import re
 import time
-import pandas as pd
 
 
-from ..System.normalize import normalize_name
 from ..System.print import eprint
 
 

@@ -1,6 +1,8 @@
 import sys
-from .print import eprint
 import logging
+
+from .print import eprint
+
 from logging import (
     basicConfig,
     info,

@@ -1,5 +1,3 @@
-from ..System.print import eprint, epprint
-from .person import Person
 import re
 
 
@@ -27,11 +25,11 @@ class Project:
         if coordinator is not None:
             assert isinstance(coordinator, str), coordinator
         ##
-        assert isinstance(partners, list) or isinstance(partners, tuple), acronym
+        assert isinstance(partners, (list, tuple)), acronym
         for partner_id in partners:
             assert isinstance(partner_id, str), partner_id
         ##
-        assert isinstance(reviewers, list) or isinstance(reviewers, tuple), acronym
+        assert isinstance(reviewers, (list, tuple)), acronym
         for reviewer_id in reviewers:
             assert isinstance(reviewer_id, str), reviewer_id
         ##

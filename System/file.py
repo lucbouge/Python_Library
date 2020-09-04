@@ -77,7 +77,6 @@ def dump_data_to_file(data, dataname, *, dir=""):
         pickle.dump(data, output)
     eprint("Done!")
     assert os.path.exists(path), path
-    return None
 
 
 def make_master_data_dict(filename_dict):

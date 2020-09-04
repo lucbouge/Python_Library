@@ -1,4 +1,4 @@
-from ..System.print import eprint, epprint
+from ..System.print import eprint
 from .person import Person
 from .Publication.person_to_pub_ids_set import get_pub_ids_set
 from .Publication.pub_id_to_publication import get_data
@@ -137,7 +137,7 @@ def extract_pub_data(
     ##
     assert year is not None
     assert isinstance(year, int), year
-    assert 2015 <= year, year
+    assert year >= 2015, year
     ##
     assert kind is not None
     assert isinstance(kind, str), kind

@@ -3,20 +3,6 @@ import logging
 
 from .print import eprint
 
-from logging import (
-    basicConfig,
-    info,
-    warning,
-    error,
-    critical,
-    exception,
-    INFO,
-    WARNING,
-    ERROR,
-    CRITICAL,
-)
-
-
 # https://docs.python.org/3/library/logging.html
 
 

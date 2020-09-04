@@ -27,7 +27,7 @@ kinds_values = (
     "these",
     "No_type",
     "patent",
-    "mem",
+    "mem",git 
     "book-chapter",
     "report-series",
     "dataset",

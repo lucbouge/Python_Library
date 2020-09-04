@@ -5,18 +5,6 @@ from ..System.normalize import normalize_name
 from .Person.name_to_keys import get_keys, get_blocks
 from .Person.identify import identify
 
-##################################################################
-
-# "firstname": firstname,
-# "lastname": lastname,
-# "fullname": fullname,
-# "person_id": person_id,  # Normalized
-# "firstname_key": firstname_key,  # Normalized
-# "lastname_key": lastname_key,  # Normalized
-# "firstname_key_initial": firstname_key_initial,  # Normalized
-
-##################################################################
-
 
 class Person:
     def __init__(self, *, firstname=None, lastname=None, fullname=None):
@@ -80,3 +68,16 @@ class Person:
     def __eq__(self, p):
         assert isinstance(p, Person), p
         return self.data["person_id"] == p["person_id"]
+
+
+##################################################################
+
+# "firstname": firstname,
+# "lastname": lastname,
+# "fullname": fullname,
+# "person_id": person_id,  # Normalized
+# "firstname_key": firstname_key,  # Normalized
+# "lastname_key": lastname_key,  # Normalized
+# "firstname_key_initial": firstname_key_initial,  # Normalized
+
+##################################################################

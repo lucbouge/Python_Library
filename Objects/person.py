@@ -19,7 +19,9 @@ class Person:
             assert pd.notna(firstname)
             assert pd.notna(lastname)
         ##
-        keys = get_keys(firstname=firstname, lastname=lastname, fullname=fullname)
+        keys = get_keys(
+            firstname=firstname, lastname=lastname, fullname=fullname
+        )
         ##
         self.data = {
             "firstname": keys["firstname"],
@@ -37,7 +39,11 @@ class Person:
 
     def is_similar_to(self, p):
         assert isinstance(p, Person)
-        for field in ("person_id", "firstname_normalized", "lastname_normalized"):
+        for field in (
+            "person_id",
+            "firstname_normalized",
+            "lastname_normalized",
+        ):
             if self.data[field] != p.data[field]:
                 return False
         return True

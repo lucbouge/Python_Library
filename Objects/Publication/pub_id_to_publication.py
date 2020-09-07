@@ -71,9 +71,7 @@ def extract_data(result, requested_pub_id):
 
 ########################################################
 
-API_publications_URL_string = (
-    "https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/publications/"
-)
+API_publications_URL_string = "https://scanr-api.enseignementsup-recherche.gouv.fr/api/v2/publications/"
 
 
 def scanr_publications_request(pub_id, cache):

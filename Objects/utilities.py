@@ -19,8 +19,8 @@ def print_stats_len(title, dico):
     print("_" * 30)
     eprint(title)
     for (n, nb) in sorted(histo.items()):
-        eprint(f"{n}:\t{nb}")
-    eprint(f"Total:\t{total}")
+        eprint(f"{n:5d}: {nb:6d}")
+    eprint(f"Total: {total:6d}")
 
 
 def date_to_year(date):

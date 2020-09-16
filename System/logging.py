@@ -18,19 +18,19 @@ from logging import (
 # https://docs.python.org/3/library/logging.html
 
 
-logging_format = "{levelname}: {pathname}#{lineno} --> {msg}"  # {asctime}
+# logging_format = "{levelname}: {pathname}#{lineno} --> {msg}"  # {asctime}
 
-logging_kwargs = {
-    "level": logging.INFO,
-    "style": "{",
-    "format": logging_format,
-    "datefmt": "%Y-%m-%d %H:%M:%S",
-    # "force": True,
-}
+# logging_kwargs = {
+#     "level": logging.INFO,
+#     "style": "{",
+#     "format": logging_format,
+#     "datefmt": "%Y-%m-%d %H:%M:%S",
+#     # "force": True,
+# }
 
 
 def set_log_destination(s):
-    kwargs = logging_kwargs.copy()
+    kwargs = dict()
     if isinstance(s, str):
         eprint(f"Logging to {s}")
         kwargs["filename"] = s
@@ -43,4 +43,4 @@ def set_log_destination(s):
 
 
 # set_log_destination("run.log")
-set_log_destination(None)
+# set_log_destination(None)

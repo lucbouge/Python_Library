@@ -62,9 +62,13 @@ def is_target_newer_than_source(*, source=None, dataname=None, dir=""):
     source_mtime = os.path.getmtime(source)
     target_mtime = os.path.getmtime(target)
     if target_mtime > source_mtime:
-        eprint(f"is_dump_newer: Target {target} is actually newer than Source {source}")
+        eprint(
+            f"is_dump_newer: Target {target} is actually newer than Source {source}"
+        )
         return True
-    eprint(f"is_dump_newer: Target {target} is not newer than Source {source}")
+    eprint(
+        f"is_dump_newer: Target {target} is not newer than Source {source}"
+    )
     return False
 
 
@@ -77,7 +81,6 @@ def dump_data_to_file(data, dataname, *, dir=""):
         pickle.dump(data, output)
     eprint("Done!")
     assert os.path.exists(path), path
-    return None
 
 
 def make_master_data_dict(filename_dict):

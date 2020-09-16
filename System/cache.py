@@ -1,6 +1,6 @@
+import os
 from .file import load_file_to_data, dump_data_to_file, test_file_exists
 from .print import eprint
-import os
 
 
 class Cache:
@@ -29,7 +29,9 @@ class Cache:
 
     def save(self):
         assert self._internal_cache_dict is not None
-        dump_data_to_file(self._internal_cache_dict, self.dataname, dir=self.dirname)
+        dump_data_to_file(
+            self._internal_cache_dict, self.dataname, dir=self.dirname
+        )
 
     def holds_key(self, key):
         assert self._internal_cache_dict is not None

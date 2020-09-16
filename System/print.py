@@ -1,6 +1,5 @@
 import sys
 import pprint
-from pprint import pformat
 
 
 def eprint(*args, **kwargs):

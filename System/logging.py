@@ -1,19 +1,7 @@
 import sys
-from .print import eprint
 import logging
-from logging import (
-    basicConfig,
-    info,
-    warning,
-    error,
-    critical,
-    exception,
-    INFO,
-    WARNING,
-    ERROR,
-    CRITICAL,
-)
 
+from .print import eprint
 
 # https://docs.python.org/3/library/logging.html
 

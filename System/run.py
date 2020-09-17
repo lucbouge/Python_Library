@@ -8,22 +8,26 @@ MAX = 100
 
 
 def phase_to_function(i):
-    # eprint("phase_to_function", i)
+    # Build the module path: Phases/phase_i_*.py
     basename = "Phases"
     path_pattern = os.path.join(basename, f"phase_{i:02d}_*.py")
+    # Look for such a file. If none exists, just return None
     paths = glob.glob(path_pattern)
     if len(paths) == 0:
         return (None, "No_such_module")
     assert len(paths) == 1, paths
     path = paths[0]
-    # eprint(f"Loading module: {path}")
+    # Tranform to module name: Phases.phase_i_*
     (dirname, filename) = os.path.split(path)
     assert dirname == basename, path
     (modulename, ext) = os.path.splitext(filename)
     assert ext == ".py", filename
     fullmodulename = basename + "." + modulename
+    # Import
     new_module = __import__(fullmodulename, fromlist=("main"))
+    # Rename "main" into "function"
     function = new_module.main
+    # Return "function" and the module name
     return (function, fullmodulename)
 
 

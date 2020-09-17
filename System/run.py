@@ -4,13 +4,16 @@ import glob
 
 from .print import eprint
 
+MAX = 100
+
 
 def phase_to_function(i):
+    # eprint("phase_to_function", i)
     basename = "Phases"
     path_pattern = os.path.join(basename, f"phase_{i:02d}_*.py")
     paths = glob.glob(path_pattern)
     if len(paths) == 0:
-        return None
+        return (None, "No_such_module")
     assert len(paths) == 1, paths
     path = paths[0]
     # eprint(f"Loading module: {path}")
@@ -31,7 +34,7 @@ def parse():
         metavar="phase id",
         help="phase to start with",
         type=str,
-        default="1",
+        default="0",
         dest="from_phase",
     )
     parser.add_argument(
@@ -39,7 +42,7 @@ def parse():
         metavar="phase id",
         help="phase to end with",
         type=str,
-        default="99",
+        default=str(MAX - 1),
         dest="to_phase",
     )
     parser.add_argument(
@@ -68,17 +71,17 @@ def run_phase(phase):
     function()
 
 
-def run_phases(l):
-    for i in l:
+def run_phases(phases):
+    for i in phases:
         run_phase(int(i))
 
 
 def run():
     args = parse()
+    # eprint(args)
     if args.phase is not None:
         run_phases(args.phase)
         return
     i1 = int(args.from_phase)
     i2 = int(args.to_phase)
     run_phases(range(i1, i2 + 1))
-

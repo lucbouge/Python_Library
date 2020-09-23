@@ -1,6 +1,5 @@
-import pandas as pd
-
 from ..System.normalize import normalize_name
+from .utilities import isna, notna
 
 from .Person.name_to_keys import get_keys, get_blocks
 from .Person.identify import identify
@@ -9,19 +8,17 @@ from .Person.identify import identify
 class Person:
     def __init__(self, *, firstname=None, lastname=None, fullname=None):
         if fullname is not None:
-            assert pd.notna(fullname)
+            assert notna(fullname)
             assert firstname is None
             assert lastname is None
         else:
             assert fullname is None
             assert firstname is not None
             assert lastname is not None
-            assert pd.notna(firstname)
-            assert pd.notna(lastname)
+            assert notna(firstname)
+            assert notna(lastname)
         ##
-        keys = get_keys(
-            firstname=firstname, lastname=lastname, fullname=fullname
-        )
+        keys = get_keys(firstname=firstname, lastname=lastname, fullname=fullname)
         ##
         self.data = {
             "firstname": keys["firstname"],

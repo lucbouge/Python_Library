@@ -1,8 +1,18 @@
 import re
 import time
-
+import pandas as pd
 
 from ..System.print import eprint
+
+idref_pattern = r"\d{8}(?:\d|X)"
+
+
+def isna(x):
+    return pd.isna(x)
+
+
+def notna(x):
+    return pd.notna(x)
 
 
 def print_stats_len(title, dico):

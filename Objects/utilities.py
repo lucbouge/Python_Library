@@ -1,18 +1,24 @@
 import re
 import time
-import pandas as pd
 
 from ..System.print import eprint
-
-idref_pattern = r"\d{8}(?:\d|X)"
-
-
-def isna(x):
-    return pd.isna(x)
+from ..System.utilities import isna, notna, date_to_year
 
 
-def notna(x):
-    return pd.notna(x)
+def clean_row(row, *, table=None):
+    new_row = dict()
+    for (field, value) in row.items():
+        if isna(value):
+            value = None
+        if isinstance(value, str):
+            value = value.strip()
+        assert field not in new_row
+        if table is not None:
+            new_field = table[field]
+        else:
+            new_field = field
+        new_row[new_field] = value
+    return new_row
 
 
 def print_stats_len(title, dico):
@@ -30,10 +36,3 @@ def print_stats_len(title, dico):
         eprint(f"{n:5d}: {nb:6d}")
     eprint(f"Total: {total:6d}")
 
-
-def date_to_year(date):
-    assert date is not None
-    year = time.strftime("%Y", time.gmtime(date / 1000))
-    assert re.fullmatch(r"\d{4}", year), year
-    assert 1900 <= int(year) <= 2050, year
-    return year

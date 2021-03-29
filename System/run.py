@@ -8,7 +8,7 @@ MAX = 100  # Module numbers range from 00 to 99
 
 
 def phase_to_function(i):
-    assert 0 <= i < MAX, i
+    # assert 0 <= i < MAX, i
     # Build the module path: Phases/phase_i_*.py
     basename = "Phases"
     path_pattern = os.path.join(basename, f"phase_{i:02d}_*.py")
